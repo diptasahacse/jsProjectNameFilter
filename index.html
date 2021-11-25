@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Filter By Dipta Saha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <textarea name="nameList" id="nameList" cols="30" rows="10"></textarea>
+        </div>
+        <div class="right">
+            <label for="Filter">Starts With</label>
+            <input id="Filter" type="text" oninput="filterIt()">
+            <p id="personName"></p>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    function filterIt(){
+        var searchText = document.getElementById('Filter').value;
+        var arr = document.getElementById('nameList').value.split("\n");
+        var dd = "";
+        for (let index = 0; index < arr.length; index++) {
+            var x = arr[index];
+            if(x.startsWith(searchText)){
+                dd+= arr[index]+"<br>";
+            }
+            
+    }
+    if(dd.length != 0){
+        document.getElementById('personName').innerHTML = dd;
+    }
+    else{
+        document.getElementById('personName').innerHTML = 'Not Found';
+
+    }
+}
+    
+
+</script>
+</html>
